@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Tech Grid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.0.0/mdb.min.css" rel="stylesheet">
+
+    <link rel="website icon" type="jpg" href="/Logo.jpg">
+    <style>
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.nav, .main-navbar, .product-card, .filter {
+  opacity: 0;
+}
+.nav {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.main-navbar {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.product-card {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+.filter{
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+}
+.loadmore-btn{
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+.categories .box{
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+      body {
+        font-family: 'Poppins';
+        margin: 0;
+        background: #f7f7f7;
+      }
+      .nav {
+        background: #1f1f1f;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .nav-para{
+        display: inline-flex;
+        margin-left: 50px;
+        color: #B2B2B2;
+        font-size: 12px;
+      }
+      .nav-link{
+        margin-left: 630px;
+      }
+      .nav-link {
+        margin-left: 680px;
+        display: inline-flex;
+        font-size: 15px;
+      }
+
+      .divider {
+        margin-top: 3px;
+        height: 20px;
+        width: 1px;
+        background-color: #B2B2B2;
+        display: inline-block;
+      }
+
+      .nav-a{
+        color: #B2B2B2;
+        margin: 0 15px;
+        text-decoration: none;
+        transition: 0.5s;
+      }
+      .nav-a:hover{
+        color: #6C7AE0;
+      }
+      .main-navbar{
+        padding: 15px;
+        background-color: white;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+      .logo img{
+        margin-top: 3px;
+        margin-left: 25px;
+        padding: 0;
+        height: 50px;
+      }
+      .nav-items{
+        margin-left: 50px;
+      }
+      .items{
+        margin: 15px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #333333;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+      .items a{
+        transition: 0.5s;
+        text-decoration: none;
+        color: #333333;
+      }
+      .items a:hover{
+        color: #6C7AE0;
+      }
+      .nav-icons{
+        margin-left: 350px;
+      }
+      .icons{
+        font-size: 20px;
+        color: #333333;
+        margin: 20px;
+        transition: 0.5s;
+      }
+      .icons:hover{
+        color: #6C7AE0;
+      }
+      
+      .banner{
+        text-align: center;
+        width: 100%;
+        height: 500px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+      }
+      .banner img{
+        width: 100%;
+        height: 100%;
+      }
+/* categories panal */
+    .categories {
+      padding: 30px 10px;
+      width:100%;
+      height: 350px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background: #f7f7f7;
+    }
+
+    .box {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 5px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+    .box .text{
+      position:absolute;
+      top: 0; left: 0;
+      color: #333333;
+      font-weight: bolder;
+      z-index: 2;
+      transition: 0.5s ease;
+    }
+    .text h2 {
+      margin-left: 20px;
+      font-weight: bolder;
+      margin-bottom: 5px;
+    }
+
+    .text p {
+      margin-left: 20px;
+      font-size: 15px;
+      margin-top: 0;
+    }
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(103, 117, 214, 0.8); /* light blue */
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .line {
+      width: 80px;
+      height: 2px;
+      background-color: white;
+      margin-top: 5px;
+      margin-left: 28px;
+      opacity: 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease 0.1s, opacity 0.3s ease 0.1s;
+    }
+
+    .shop-now {
+      margin-top: 230px;
+      margin-left: 20px;
+      font-size: 15px;
+      font-weight: 550;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease 0.3s, transform 0.5s ease 0.3s;
+    }
+
+    .box:hover img {
+      opacity: 0.9;
+    }
+
+    .box:hover .overlay {
+      opacity: 1;
+    }
+
+    .box:hover .line {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .box:hover .shop-now {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .box:hover .text{
+      color: #fff;
+    }
+
+
+    #collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px 30px;
+  gap: 30px;
+  background: #f7f7f7;
+}
+
+.product-card {
+  background: white;
+  width: 250px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.534);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  margin-bottom: 15px;
+}
+.overshow {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(103, 117, 214, 0.8); /* light blue */
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+.prod-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px 12px;
+  background-color: #fff;
+  color: #6C7AE0;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s ease;
+  font-family: 'Poppins';
+}
+.image-container:hover .overshow{
+  opacity: 1;
+}
+.image-container:hover .prod-img{
+  opacity: 0.8;
+}
+.image-container:hover .image-btn {
+  opacity: 1;
+}
+
+
+.product-card h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.product-card .price {
+  font-weight: bold;
+  color: #6C7AE0;
+  margin-bottom: 10px;
+}
+
+.product-card .desc {
+  font-size: 14px;
+  color: #666;
+}
+.btn{
+  font-family: poppins;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background-color: #6C7AE0;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.btn:hover{
+  background-color: #fff;
+  color: #6C7AE0;
+  border: 1px solid #6C7AE0;
+}
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  flex-wrap: wrap;
+  background: #f7f7f7;
+  padding: 30px 30px;
+}
+
+.filter-para {
+  font-weight: bold;
+  color: #333;
+}
+
+.filter span a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 8px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.filter span a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #6C7AE0;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease;
+}
+
+.filter span a:hover {
+  color: #6C7AE0;
+}
+
+.filter span a:hover::after {
+  width: 100%;
+}
+.loadmore{
+  margin-top: 20px;
+  text-align: center;
+}
+.loadmore-btn{
+  width: 150px;
+  font-family: 'Poppins';
+  padding: 15px 15px;
+  font-weight: bold;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #222;
+  margin: 10px 10px;
+  transition: 0.3s ease;
+}
+#spin{
+  margin-left: 5px;
+  font-size: 15px;
+  color: black;
+}
+.loadmore-btn:hover{
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.loadmore-btn:hover #spin{
+  color: #fff;
+}
+
+ /* login  */
+ #login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#loginForm {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out forwards;
+    transform: translateY(0);
+}
+      .login-hed{
+        margin-top: -10px;
+      }
+      #loginForm .login-input{
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        transition: 0.5s ease;
+      }
+      #loginForm .login-input:hover{
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.534);
+        border: 1px solid #64656900;
+      }
+      #loginForm .login-input:focus {
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.534);
+        border: 1px solid transparent; 
+        outline: none; 
+      }
+
+      #loginForm button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #222;
+        color: #fff;
+        border: 1px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.5s ease;
+        font-weight: bold;
+      }
+      #loginForm button:hover{
+        background: #fff;
+        color: #222;
+      }
+      #error-u,#error-p,#error-pe,#error-ue {
+        color: red;
+        font-size: 0.9em;
+      }
+/* footer */
+      footer {
+      margin-top: 20px;  
+      background-color: #111827;
+      color: #d1d5db;
+      padding: 70px 20px 40px;
+      font-family: poppins;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-section h4 {
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 16px;
+      color: #9ca3af;
+      letter-spacing: 1px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-section li {
+      margin-bottom: 12px;
+    }
+
+    .footer-section a {
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .newsletter {
+      grid-column: span 2;
+    }
+
+    .newsletter p {
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: #d1d5db;
+    }
+
+    .newsletter form {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .newsletter input[type="email"] {
+      font-family: poppins;
+      padding: 10px 12px;
+      width: 60%;
+      max-width: 250px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    .newsletter button {
+      font-family: poppins;
+      padding: 10px 16px;
+      background-color: #6C7AE0;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .newsletter button:hover {
+      background-color: #fff;
+      color: #6C7AE0;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-icons a {
+      color: #9ca3af;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #374151;
+      margin-top: 40px;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+    </style>
+  </head>
+  
+<body>
+
+  <!-- Login-->
+  <div id="login">
+    <form id="loginForm" onsubmit="return validateLogin()">
+      <h2 class="login-hed">LOGIN</h2>
+      <input type="text" id="username" placeholder="Username" class="login-input">
+      <div id="error-u"></div><div id="error-ue"></div>
+      <input type="password" id="password" placeholder="Password" class="login-input">
+      <div id="error-p"></div><div id="error-pe"></div>
+      <button type="submit">LOGIN</button>
+    </form>
+  </div> 
+<!-- Navbar -->
+<nav class="nav">
+  <div class="nav-para">Free shipping for standard order over 1000&euro;</div>
+  <div class="nav-link">
+    <span class="divider"></span>
+    <a href="#" class="nav-a">Help & FAQs</a>
+    <span class="divider"></span>
+    <a href="#" class="nav-a">My Account</a>
+    <span class="divider"></span>
+    <a href="#" class="nav-a">Login</a>
+    <span class="divider"></span>
+  </div>
+</nav>
+<header>
+<div class="main-navbar">
+  <div class="logo"><a href="#"><img src="./Images/Logo.jpg"></a></div>
+  <div class="nav-items">
+    <span class="items"><a href="#">Home</a></span>
+    <span class="items"><a href="./products.html">Shop</a></span>
+    <span class="items"><a href="">Offers</a></span>
+    <span class="items"><a href="">Blog</a></span>
+    <span class="items"><a href="">About</a></span>
+    <span class="items"><a href="">Contact</a></span>
+  </div>
+  <div class="nav-icons">
+    <span class="icons"><i class="fa-solid fa-magnifying-glass"></i></span>
+    <span class="icons"><i class="fa-solid fa-cart-shopping"></i></span>
+    <span class="icons"><i class="fa-regular fa-heart"></i></span>
+  </div>
+</div>
+
+<div class="banner">
+  <img src="./Images/banner.jpg" alt="Banner Image">
+</div>
+
+<div class="categories">
+  <a href="./products.html">
+    <div class="box">
+      <img src="./Images/laptop.avif" alt="laptop">
+      <div class="text">
+        <h2>LAPTOPS</h2>
+        <p>New Trend</p>
+      </div>
+      <div class="overlay">
+        <button class="shop-now">SHOP NOW</button>
+        <div class="line"></div>
+      </div>
+    </div>
+  </a>
+  <a href="./products.html">
+    <div class="box">
+      <img src="./Images/mobile.png" alt="mobiles">
+      <div class="text">
+        <h2>MOBILES</h2>
+        <p>Exclusive</p>
+      </div>
+      <div class="overlay">
+        <button class="shop-now">SHOP NOW</button>
+        <div class="line"></div>
+      </div>
+    </div>
+  </a>
+  <a href="./products.html">
+    <div class="box">
+      <img src="./Images/accessories.png" alt="accessory">
+      <div class="text">
+        <h2>ACCESSORIES</h2>
+        <p>Latest</p>
+      </div>
+      <div class="overlay">
+        <button class="shop-now">SHOP NOW</button>
+        <div class="line"></div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="filter">
+  <div class="filter-para">Filter by:</div>
+  <span><a href="#" data-category="all">All Products</a></span>
+  <span><a href="#" data-category="laptop">Laptops</a></span>
+  <span><a href="#" data-category="mobiles">Mobiles</a></span>
+  <span><a href="#" data-category="watches">Watches</a></span>
+  <span><a href="#" data-category="accessory">Accessories</a></span>
+</div>
+</header>
+<!-- Cards -->
+<div id="spinner" style="display: none; text-align: center; margin: 50px 0;">
+  <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 40px; color: #333;"></i>
+</div>
+<div id="collection"></div><!--MAin cards are here-->
+
+  <div class="loadmore">
+    <a href="./products.html">
+      <button class="loadmore-btn">
+       Load More <i id="spin" class="fa-solid fa-circle-notch fa-spin"></i>
+      </button>
+    </a>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+      <div class="footer-section newsletter">
+        <h4>Subscribe to our newsletter</h4>
+        <p>Get the latest news and updates.</p>
+        <form>
+          <input type="email" placeholder="Enter your email" required />
+          <button >Subscribe</button>
+        </form>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/profile.php?id=61573026815423" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Tech Grid, Inc. All rights reserved.
+    </div>
+  </footer>
+</body>
+<script>
+
+  if(localStorage.getItem("Username") !== "" && localStorage.getItem("Password") !== ""){
+      document.getElementById('login').style.display = "none";
+      document.body.style.overflow = "auto";
+      loadProducts();
+  } 
+  else if(localStorage.getItem("Username") == "" && localStorage.getItem("Password") == ""){
+
+    function validateLogin() {
+    let user = document.getElementById('username').value.trim();
+    let pass = document.getElementById('password').value.trim();
+    let userName = localStorage.setItem("User name",user);
+    let passWord = localStorage.setItem("Password",pass);
+    let errorDivu = document.getElementById('error-u');
+    let errorDivp = document.getElementById('error-p');
+
+    
+    if (user == "" ||user.length < 3) {
+      errorDivu.textContent = "Please Enter Username of atleast 3 characters.";
+      return false;
+    }
+    else if(pass == "" || pass.length < 6){
+      errorDivp.textContent = "Please Enter Password of atleast 6 characters.";
+      return false;
+    }
+     else {
+      document.getElementById('login').style.display = "none";
+      document.body.style.overflow = "auto";
+      loadProducts();
+      return false;
+    }
+  }
+  }
+  
+  let allProducts = [];
+
+  function renderProducts(products) {
+    const container = document.getElementById('collection');
+    container.innerHTML = '';
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+  <div class="image-container">
+    <img src="${product.image}" alt="${product.name}" class="prod-img">
+    <div class="overshow">
+        <button class="image-btn">More Info</button>
+    </div>
+  </div>
+  <h3>${product.name}</h3>
+  <p class="price">${product.price} &euro;</p>
+  <p class="desc">${product.description}</p>
+  <button class="btn">Add to Cart</button>
+`;
+
+      container.appendChild(card);
+    });
+  }
+function loadProducts() {
+  const spinner = document.getElementById('spinner');
+  spinner.style.display = 'block';
+
+  fetch('mainpageproducts.json')
+    .then(res => res.json())
+    .then(data => {
+      allProducts = data;
+      renderProducts(allProducts);
+    })
+    .catch(err => {
+      console.error("Failed to load products:", err);
+    })
+    .finally(() => {
+      spinner.style.display = 'none';
+    });
+}
+
+
+  function filterProducts(category) {
+    if (category === 'all') {
+      renderProducts(allProducts);
+    } else {
+      const filtered = allProducts.filter(p => p.category.toLowerCase() === category);
+      renderProducts(filtered);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.filter span a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const category = link.getAttribute('data-category');
+        filterProducts(category);
+      });
+    });
+  });
+</script>
+</html>

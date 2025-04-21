@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="website icon" type="jpg" href="/Logo.jpg">
+    <style>
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.nav, .main-navbar, .product-card, .filter {
+  opacity: 0;
+}
+.nav {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.main-navbar {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.product-card {
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+.filter{
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        background: white;
+      }
+      .nav {
+        background: #1f1f1f;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .nav-para{
+        display: inline-flex;
+        margin-left: 50px;
+        color: #B2B2B2;
+        font-size: 12px;
+      }
+      .nav-link{
+        margin-left: 630px;
+      }
+      .nav-link {
+        margin-left: 680px;
+        display: inline-flex;
+        font-size: 15px;
+      }
+
+      .divider {
+        margin-top: 3px;
+        height: 20px;
+        width: 1px;
+        background-color: #B2B2B2;
+        display: inline-block;
+      }
+
+      .nav-a{
+        color: #B2B2B2;
+        margin: 0 15px;
+        text-decoration: none;
+        transition: 0.5s;
+      }
+      .nav-a:hover{
+        color: #6C7AE0;
+      }
+      .main-navbar{
+        padding: 15px;
+        background-color: white;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 110px;
+      }
+      .logo img{
+        margin-top: 3px;
+        margin-left: 25px;
+        padding: 0;
+        height: 50px;
+      }
+      .nav-items{
+        margin-left: 50px;
+      }
+      .items{
+        margin: 15px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #333333;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+      .items a{
+        transition: 0.5s;
+        text-decoration: none;
+        color: #333333;
+      }
+      .items a:hover{
+        color: #6C7AE0;
+      }
+      .nav-icons{
+        margin-left: 420px;
+      }
+      .icons{
+        font-size: 20px;
+        color: #333333;
+        margin: 20px;
+        transition: 0.5s;
+      }
+      .icons:hover{
+        color: #6C7AE0;
+      }
+
+#collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+  gap: 30px;
+  background: #f7f7f7;
+}
+
+.product-card {
+  background: white;
+  width: 250px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.534);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  margin-bottom: 15px;
+}
+.overshow {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(103, 117, 214, 0.8); /* light blue */
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+.prod-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px 12px;
+  background-color: #fff;
+  color: #6C7AE0;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.3s ease;
+  font-family: 'Poppins';
+}
+.image-container:hover .overshow{
+  opacity: 1;
+}
+.image-container:hover .prod-img{
+  opacity: 0.8;
+}
+.image-container:hover .image-btn {
+  opacity: 1;
+}
+
+
+.product-card h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.product-card .price {
+  font-weight: bold;
+  color: #6C7AE0;
+  margin-bottom: 10px;
+}
+
+.product-card .desc {
+  font-size: 14px;
+  color: #666;
+}
+.btn{
+  font-family: poppins;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background-color: #6C7AE0;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.btn:hover{
+  background-color: #fff;
+  color: #6C7AE0;
+  border: 1px solid #6C7AE0;
+}
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-para {
+  font-weight: bold;
+  color: #333;
+}
+
+.filter span a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 8px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.filter span a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #6C7AE0;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease;
+}
+
+.filter span a:hover {
+  color: #6C7AE0;
+}
+
+.filter span a:hover::after {
+  width: 100%;
+}
+/* footer */
+footer {
+      background-color: #111827;
+      color: #d1d5db;
+      padding: 70px 20px 40px;
+      font-family: poppins;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-section h4 {
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 16px;
+      color: #9ca3af;
+      letter-spacing: 1px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-section li {
+      margin-bottom: 12px;
+    }
+
+    .footer-section a {
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .newsletter {
+      grid-column: span 2;
+    }
+
+    .newsletter p {
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: #d1d5db;
+    }
+
+    .newsletter form {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .newsletter input[type="email"] {
+      font-family: poppins;
+      padding: 10px 12px;
+      width: 60%;
+      max-width: 250px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    .newsletter button {
+      font-family: poppins;
+      padding: 10px 16px;
+      background-color: #6C7AE0;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .newsletter button:hover {
+      background-color: #fff;
+      color: #6C7AE0;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-icons a {
+      color: #9ca3af;
+      font-size: 20px;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #374151;
+      margin-top: 40px;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+
+    </style>
+  </head>
+  
+<body>
+
+<nav class="nav">
+  <div class="nav-para">Free shipping for standard order over 1000&euro;</div>
+  <div class="nav-link">
+    <span class="divider"></span>
+    <a href="#" class="nav-a">Help & FAQs</a>
+    <span class="divider"></span>
+    <a href="#" class="nav-a">My Account</a>
+    <span class="divider"></span>
+    <a href="#" class="nav-a">Login</a>
+    <span class="divider"></span>
+  </div>
+</nav>
+
+<div class="main-navbar">
+  <div class="logo"><a href="#"><img src="./Images/Logo.jpg"></a></div>
+  <div class="nav-items">
+    <span class="items"><a href="./techgrid.html">Home</a></span>
+    <span class="items"><a href="">Offers</a></span>
+    <span class="items"><a href="">Blog</a></span>
+    <span class="items"><a href="">About</a></span>
+    <span class="items"><a href="">Contact</a></span>
+  </div>
+  <div class="nav-icons">
+    <span class="icons"><i class="fa-solid fa-magnifying-glass"></i></span>
+    <span class="icons"><i class="fa-solid fa-cart-shopping"></i></span>
+    <span class="icons"><i class="fa-regular fa-heart"></i></span>
+  </div>
+</div>
+
+<div class="filter">
+  <div class="filter-para">Filter by:</div>
+  <span><a href="#" data-category="all">All Products</a></span>
+  <span><a href="#" data-category="laptop">Laptops</a></span>
+  <span><a href="#" data-category="mobiles">Mobiles</a></span>
+  <span><a href="#" data-category="watches">Watches</a></span>
+  <span><a href="#" data-category="accessory">Accessories</a></span>
+</div>
+
+
+
+<!-- Cards -->
+<div id="collection"></div>
+
+<!--footer-->
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Accessibility</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms</a></li>
+      </ul>
+    </div>
+    <div class="footer-section newsletter">
+      <h4>Subscribe to our newsletter</h4>
+      <p>Get the latest news and updates.</p>
+      <form>
+        <input type="email" placeholder="Enter your email" required />
+        <button >Subscribe</button>
+      </form>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Tech Grid, Inc. All rights reserved.
+  </div>
+</footer>
+</body>
+<script>
+  let allProducts = [];
+
+  function renderProducts(products) {
+    const container = document.getElementById('collection');
+    container.innerHTML = '';
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+  <div class="image-container">
+    <img src="${product.image}" alt="${product.name}" class="prod-img">
+    <div class="overshow">
+        <button class="image-btn">More Info</button>
+    </div>
+  </div>
+  <h3>${product.name}</h3>
+  <p class="price">${product.price} &euro;</p>
+  <p class="desc">${product.description}</p>
+  <button class="btn">Add to Cart</button>
+`;
+
+      container.appendChild(card);
+    });
+  }
+
+  function loadProducts() {
+    fetch('products.json')
+      .then(res => res.json())
+      .then(data => {
+        allProducts = data;
+        renderProducts(allProducts);
+      });
+  }
+
+  function filterProducts(category) {
+    if (category === 'all') {
+      renderProducts(allProducts);
+    } else {
+      const filtered = allProducts.filter(p => p.category.toLowerCase() === category);
+      renderProducts(filtered);
+    }
+  }
+
+  // Set up event listeners for filter buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    loadProducts();
+    document.querySelectorAll('.filter span a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const category = link.getAttribute('data-category');
+        filterProducts(category);
+      });
+    });
+  });
+</script>
+
+</html>
